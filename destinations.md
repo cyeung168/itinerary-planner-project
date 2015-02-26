@@ -1,3 +1,8 @@
 - buffalo, ny
 -chicago, il
--san francisco
+-san francisco, ca
+-tucson, az
+-philadelphia, pa
+-sitges, Catalonia, Spain
+-Oakland, CA
+-Something... Something, LA (Lousiana, NOT Los Angeles)
