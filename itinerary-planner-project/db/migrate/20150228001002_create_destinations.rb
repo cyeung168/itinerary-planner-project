@@ -3,7 +3,7 @@ class CreateDestinations < ActiveRecord::Migration
     create_table :destinations do |t|
       t.string :location
       t.string :name
-      t.integer :date
+      t.string :info
 
       t.timestamps null: false
     end

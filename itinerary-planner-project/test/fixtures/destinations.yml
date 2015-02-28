@@ -3,9 +3,9 @@
 one:
   location: MyString
   name: MyString
-  date: 1
+  info: MyString
 
 two:
   location: MyString
   name: MyString
-  date: 1
+  info: MyString
