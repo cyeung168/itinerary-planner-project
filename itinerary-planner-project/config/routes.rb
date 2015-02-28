@@ -1,56 +1,34 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  get 'login', to: "access#login", as: 'login'
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  get 'signup', to: "access#signup", as: 'signup'
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  post 'login', to: "access#attempt_login"
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  post 'signup', to: "access#create"
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  get 'logout', to: "access#logout"
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+  resources :itineraries do
+    post '/comments' => 'comments#create', as: 'comments'
+  end
+  resources :destinations do
+    post '/comments' => 'comments#create', as: 'comments'
+  end
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+  post '/actors/:id/movies/new' => 'actors#add_movie', as: :add_movie
+  delete '/actors/:id/movies/:movie_id' => 'actors#remove_movie', as: :remove_movie
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+  root 'site#index'
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  # Adding and removing destination to/from a single itinerary
+  post '/itineraries/:id/destinations/new' => 'destinations#create', as: :add_destination
+  delete '/itineraries/:id/destinations/:destination_id' => 'destinations#destroy', as: :remove_destination
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # Adding and removing a user/companion to/from an existing destination
+  post '/itineraries/:id/destinations/new' => 'companions#create', as: :add_companion
+  post '/itineraries/:id/destinations/:destination_id/edit' => 'companions#create', as: :add_companion
+  delete '/itineraries/:id/destinations/:destination_id' => 'companions#destroy', as: :remove_companion
+  delete '/itineraries/:id/destinations/:destination_id/edit' => 'companions#destroy', as: :remove_companion
+
 end
