@@ -1,0 +1,20 @@
+<h1><%= @destination.name %></h1>
+<h4> %= @destination.location %></h4>
+<p><%= @destination.info %></p>
+
+<h4>Add your Companions!</h4>
+<ul>
+    <% @destination.user.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+      <%= button_to "X", remove_user_path(@destination, user), :method => :delete %>
+    </li>
+    <% end %>
+  </ul>
+  <% unless @user.empty? %>
+    <%= form_tag add_user_path(@destination) do %>
+      <%= collection_select :user, :id, @user, :id, :name %>
+      <%= submit_tag "Add" %>
+    <% end %>
+  <% end %>
+</div>
