@@ -1,0 +1,24 @@
+<h1>Signup</h1>
+
+<%= simple_form_for(@user, url: signup_path) do |f|%>
+
+<p>
+  <%= f.input(:user_name, autofocus: true) %>
+</p>
+<p>
+  <%= f.input(:password, required: true) %>
+</p>
+<p>
+  <%= f.input(:first_name, required: true) %>
+</p>
+<p>
+  <%= f.input(:last_name, required: true) %>
+</p>
+<p>
+  <%= f.input(:email, required: true) %>
+</p>
+<p>
+  <%= f.button(:submit, "Signup", class: "btn btn-primary") %>
+</p>
+  <%= link_to "Have an account already? Log in here", login_path %>
+<% end %>
