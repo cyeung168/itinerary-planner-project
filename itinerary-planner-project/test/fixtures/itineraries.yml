@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  origin: MyString
-  destination: MyString
+  origin: 1
+  destination: 1
   name: MyString
-  depart_date: 1
-  return_date: 1
+  depart_date: 2015-03-01
+  return_date: 2015-03-01
 
 two:
-  origin: MyString
-  destination: MyString
+  origin: 1
+  destination: 1
   name: MyString
-  depart_date: 1
-  return_date: 1
+  depart_date: 2015-03-01
+  return_date: 2015-03-01

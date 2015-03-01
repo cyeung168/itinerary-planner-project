@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'destinations/index'
 
   get 'destinations/show'
@@ -9,6 +10,15 @@ Rails.application.routes.draw do
 
 root 'site#index'
 
+=======
+  get 'itineraries/new'
+
+  get 'itineraries/edit'
+
+  get 'itineraries/show'
+
+  get 'itineraries/index'
+>>>>>>> f760c3af533c1e7a0c762002ea6f0a66d6536fc8
 
   get 'login', to: "access#login", as: 'login'
 

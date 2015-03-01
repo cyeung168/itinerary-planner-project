@@ -18,7 +18,10 @@ before_action :find_destination, :find_itinerary, only: [:edit, :show, :update, 
   end
 
   def create
-    Destination.create destination_params
+    @destination = Destination.create destination_params
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @itinerary.destinations << @destination
+
     redirect_to @itinerary
   end
 

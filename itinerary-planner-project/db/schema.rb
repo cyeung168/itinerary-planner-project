@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228001002) do
+ActiveRecord::Schema.define(version: 20150301224418) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "content"
@@ -50,11 +50,11 @@ ActiveRecord::Schema.define(version: 20150228001002) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.string   "origin"
-    t.string   "destination"
+    t.integer  "origin"
+    t.integer  "destination"
     t.string   "name"
-    t.integer  "depart_date"
-    t.integer  "return_date"
+    t.date     "depart_date"
+    t.date     "return_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
