@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'itineraries/new'
+
+  get 'itineraries/edit'
+
+  get 'itineraries/show'
+
+  get 'itineraries/index'
+
   get 'login', to: "access#login", as: 'login'
 
   get 'signup', to: "access#signup", as: 'signup'
@@ -25,10 +33,10 @@ Rails.application.routes.draw do
   post '/itineraries/:id/destinations/new' => 'destinations#create', as: :add_destination
   delete '/itineraries/:id/destinations/:destination_id' => 'destinations#destroy', as: :remove_destination
 
-  # Adding and removing a user/companion to/from an existing destination
-  post '/itineraries/:id/destinations/new' => 'companions#create', as: :add_companion
-  post '/itineraries/:id/destinations/:destination_id/edit' => 'companions#create', as: :add_companion
-  delete '/itineraries/:id/destinations/:destination_id' => 'companions#destroy', as: :remove_companion
-  delete '/itineraries/:id/destinations/:destination_id/edit' => 'companions#destroy', as: :remove_companion
+  # # Adding and removing a user/companion to/from an existing destination
+  # post '/itineraries/:id/destinations/new' => 'companions#create', as: :add_companion
+  # post '/itineraries/:id/destinations/:destination_id/edit' => 'companions#create', as: :add_companion
+  # delete '/itineraries/:id/destinations/:destination_id' => 'companions#destroy', as: :remove_companion
+  # delete '/itineraries/:id/destinations/:destination_id/edit' => 'companions#destroy', as: :remove_companion
 
 end
