@@ -2,7 +2,7 @@ class ItinerariesController < ApplicationController
   before_action :find_destination, :find_itinerary, only: [:edit, :show, :update, :destroy, :add_user, :remove_user]
   def index
     @user = User.find(session[:user_id])
-    # @itineraries = @user.itineraries
+    @itineraries = Itinerary.all
   end
 
   def show
@@ -14,6 +14,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    @destinations = Destination.all
   end
 
   def edit
@@ -51,6 +52,14 @@ class ItinerariesController < ApplicationController
   def remove_user
     user = User.find(params[:user_id])
     @itinerary.users.delete(user)
+    redirect_to @itinerary
+  end
+
+  def add_destination
+    destination = Destination.find(destination_params[:id])
+    unless @itinerary.destinations.include? destination
+      @itinerary.destinations << destination
+    end
     redirect_to @itinerary
   end
 

@@ -1,9 +1,25 @@
 <h1>Add an itinerary</h1>
 
 <%= form_for @itinerary do |f| %>
-  <%= f.text_field :name, :placeholder => "Name" %>
-    <%= f.text_field :location, :placeholder => "Name" %>
-      <%= f.text_field :name, :placeholder => "Name" %>
+<% @destinations.each do |place| %>
+   <li>
+     <%= link_to "#{place.name} (#{place.location})", destination_path(place) %>
+     <%= button_to "X", remove_destination_path(@itinerary, place), :method => :delete %>
+   </li>
+   <% end %>
+ </ul>
+ <% unless @destinations.empty? %>
+   <%= form_tag add_destination_path do |f|%>
+     <%= collection_select :destination, :id, @destinations, :id, :name %>
+     <%= submit_tag "Add" %>
+   <% end %>
+ <% end %>
 
-  <%= f.submit %>
+
+
+  <p><%= f.text_field :name, :placeholder => "Name" %></p>
+  <p><%= f.text_field :depart_date, :placeholder => "Departure Date" %></p>
+  <p><%= f.text_field :return_date, :placeholder => "Return Date" %></p>
+
+<%= f.submit %>
 <% end %>

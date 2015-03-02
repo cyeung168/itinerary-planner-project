@@ -64,7 +64,7 @@ class AccessController < ApplicationController
 
   def prevent_login_signup
     if session[:user_id]
-      redirect_to home_path
+      # redirect_to itineraries_path(session[:user_id])
     end
   end
 end
