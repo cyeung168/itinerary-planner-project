@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150301224418) do
   end
 
   create_table "itineraries", force: :cascade do |t|
-    t.integer  "origin"
-    t.integer  "destination"
+    t.string   "origin"
+    t.string   "destination"
     t.string   "name"
     t.date     "depart_date"
     t.date     "return_date"

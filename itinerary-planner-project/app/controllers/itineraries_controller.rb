@@ -2,12 +2,13 @@ class ItinerariesController < ApplicationController
   before_action :find_destination, :find_itinerary, only: [:edit, :show, :update, :destroy, :add_user, :remove_user]
   def index
     @user = User.find(session[:user_id])
-    # @itineraries = @user.itineraries
+    @itineraries = Itinerary.all
   end
 
   def show
     @users = User.all - @itinerary.users
-    @destinations = Destination.all - @itinerary.destinations
+    @destination_origin = Destination.find(params[:origin])
+    @destination_destination = Destination.find(params[:destination])
     @comments = @itinerary.comments
     @commentable = find_commentable
   end
