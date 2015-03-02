@@ -1,2 +1,4 @@
-<h1>@user Itineraries</h1>
-<p>Find me in app/views/itineraries/index.html.erb</p>
+<h1><%=@user.user_name %> Itineraries</h1>
+
+
+<p><%= link_to "Add a new itinerary", new_itinerary_path%></p>
