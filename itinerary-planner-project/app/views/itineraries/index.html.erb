@@ -1,2 +1,8 @@
-<h1>@user Itineraries</h1>
-<p>Find me in app/views/itineraries/index.html.erb</p>
+<h1>Your Itineraries!</h1>
+<ul>
+  <% @itineraries.each do |itinerary| %>
+  <li>
+  <%= link_to "Trip Name: #{itinerary.name} // Destination: (#{itinerary.destinations})", itinerary_path(itinerary) %> </li>
+
+<% end %>
+</ul>

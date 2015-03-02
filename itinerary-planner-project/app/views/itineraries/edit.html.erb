@@ -1,7 +1,14 @@
 <h1>Edit your Itinerary!</h1>
 <%= form_for @itinerary do |f| %>
+  Name: 
   <%= f.text_field :name, :placeholder => "Name", :autofocus => true %>
-  <%= f.text_field :location, :placeholder => "Location" %>
-   <%= f.text_field :info, :placeholder => "Info" %>
+  Origin: 
+  <%= f.text_field :origin, :placeholder => "Origin" %>
+  Destination: 
+  <%= f.text_field :destination, :placeholder => "Destination" %>
+  Departing Date: 
+  <%= f.date_field :depart_date %>
+  Returning Date: 
+  <%= f.date_field :return_date %>
   <%= f.submit "Update!" %>
   <% end %>
