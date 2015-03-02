@@ -1,0 +1,7 @@
+<h1>Edit your Destination!</h1>
+<%= form_for @destination do |f| %>
+  <%= f.text_field :name, :placeholder => "Name", :autofocus => true %>
+  <%= f.text_field :location, :placeholder => "Location" %>
+   <%= f.text_field :info, :placeholder => "Info" %>
+  <%= f.submit "Update!" %>
+  <% end %>
