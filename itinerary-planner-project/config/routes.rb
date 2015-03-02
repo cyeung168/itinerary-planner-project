@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'access/home'
-
   get 'access/login'
 
   get 'access/signup'

@@ -64,11 +64,11 @@ class ItinerariesController < ApplicationController
  end
 
  def find_destination
-   @destination = Destination.find(params[:id])
+   @destination = Destination.find(params[:destination_id])
  end
 
  def find_itinerary
-   @itinerary = Itinerary.find(params[:itinerary_id])
+   @itinerary = Itinerary.find(session[:itinerary_id]["id"])
  end
 end
 

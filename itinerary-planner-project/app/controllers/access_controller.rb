@@ -22,15 +22,15 @@ class AccessController < ApplicationController
 
   def attempt_login
 
-    if params[:username].present? && params[:password].present?
-      found_user = User.find_by_username params[:username]
+    if params[:user_name].present? && params[:password].present?
+      found_user = User.find_by_user_name params[:user_name]
       if found_user
         authorized_user = found_user.confirm params[:password]
       end
     end
 
     if !found_user
-      flash.now[:alert] = "Invalid username"
+      flash.now[:alert] = "Invalid user_name"
       render :login
 
     elsif !authorized_user

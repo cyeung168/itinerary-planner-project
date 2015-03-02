@@ -1,12 +1,12 @@
 <h1><%= @itinerary.name %></h1>
 
-<div class="black-box">
+<div>
   <h2>Destinations</h2>
   <ul>
     <% @itinerary.destinations.each do |place| %>
     <li>
       <%= link_to "#{place.name} (#{place.location})", destination_path(place) %>
-      <%= button_to "X", remove_destination_path(@itineray, place), :method => :delete %>
+      <%= button_to "X", remove_destination_path(@itinerary, place), :method => :delete %>
     </li>
     <% end %>
   </ul>
