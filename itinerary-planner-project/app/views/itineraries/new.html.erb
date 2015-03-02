@@ -4,7 +4,7 @@
 <% @destinations.each do |place| %>
    <li>
      <%= link_to "#{place.name} (#{place.location})", destination_path(place) %>
-     <%= button_to "X", remove_destination_path(@itinerary, place), :method => :delete %>
+
    </li>
    <% end %>
  </ul>
@@ -14,6 +14,8 @@
      <%= submit_tag "Add" %>
    <% end %>
  <% end %>
+
+ <p><%= link_to "Add Destination", new_destination_path %></p>
 
 
 

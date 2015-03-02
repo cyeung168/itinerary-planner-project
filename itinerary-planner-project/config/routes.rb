@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   root 'access#login'
 
   # Adding and removing destination to/from a single itinerary
-  post '/itineraries/:id/destinations/new' => 'destinations#create', as: :add_destination
-  delete '/itineraries/:id/destinations/:destination_id' => 'destinations#destroy', as: :remove_destination
+  post '/itineraries/new' => 'itineraries#add_destination', as: :add_destination
+  # delete '/itineraries/:id/destinations/:destination_id' => 'destinations#destroy', as: :remove_destination
 
 
 

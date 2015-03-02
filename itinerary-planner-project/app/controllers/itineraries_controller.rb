@@ -59,7 +59,7 @@ class ItinerariesController < ApplicationController
   def add_destination
     destination = Destination.find(destination_params[:id])
     unless @itinerary.destinations.include? destination
-      @itinerary.destinations << destination
+      itinerary.origin = destination.name
     end
     redirect_to @itinerary
   end
