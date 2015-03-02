@@ -1,6 +1,9 @@
-<h1>Add an itinerary</h1>
+<h1>Add your Itinerary!</h1>
 
 <%= form_for @itinerary do |f| %>
-  <%= f.text_field :name, :placeholder => "Name" %>
+  <%= f.text_field :name, :placeholder => "Name", :autofocus => true %>
+  <%= f.text_field :location, :placeholder => "Location" %>
+   <%= f.text_field :info, :placeholder => "Info" %>
   <%= f.submit %>
+
 <% end %>
