@@ -1,10 +1,36 @@
 <h1>Add your Itinerary!</h1>
 
 <%= form_for @itinerary do |f| %>
+<<<<<<< HEAD
   <%= f.text_field :name, :placeholder => "Name", :autofocus => true %>
   <%= f.text_field :location, :placeholder => "Location" %>
    <%= f.text_field :info, :placeholder => "Info" %>
 
   <%= f.submit %>
 
+=======
+<% @destinations.each do |place| %>
+   <li>
+     <%= link_to "#{place.name} (#{place.location})", destination_path(place) %>
+
+   </li>
+   <% end %>
+ </ul>
+ <% unless @destinations.empty? %>
+   <%= form_tag add_destination_path do |f|%>
+     <%= collection_select :destination, :id, @destinations, :id, :name %>
+     <%= submit_tag "Add" %>
+   <% end %>
+ <% end %>
+
+ <p><%= link_to "Add Destination", new_destination_path %></p>
+
+
+
+  <p><%= f.text_field :name, :placeholder => "Name" %></p>
+  <p><%= f.text_field :depart_date, :placeholder => "Departure Date" %></p>
+  <p><%= f.text_field :return_date, :placeholder => "Return Date" %></p>
+
+<%= f.submit %>
+>>>>>>> 8e8e94b84c5b1eb4b620589eae0d98f4c0263e44
 <% end %>

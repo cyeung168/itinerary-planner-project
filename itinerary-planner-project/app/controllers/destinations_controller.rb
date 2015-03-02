@@ -19,10 +19,14 @@ before_action :find_destination, :find_itinerary, only: [:edit, :show, :update, 
 
   def create
     @destination = Destination.create destination_params
+<<<<<<< HEAD
     @itinerary = Itinerary.find(params[:id])
     # @itinerary.destinations << @destination
 
     redirect_to @itinerary
+=======
+    redirect_to new_itinerary_path
+>>>>>>> 8e8e94b84c5b1eb4b620589eae0d98f4c0263e44
   end
 
   def update
@@ -66,9 +70,9 @@ private
     @destination = Destination.find(params[:id])
   end
 
-  def find_itinerary
-    @itinerary = Itinerary.find(params[:itinerary_id])
-  end
+def find_itinerary
+   @itinerary = Itinerary.find(session[:itinerary_id]["id"])
+end
 
   #   def find_user
   #   @user = User.find(params[:itinerary_id])

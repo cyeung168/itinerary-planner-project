@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>Your Itineraries!</h1>
 <ul>
   <% @itineraries.each do |itinerary| %>
@@ -6,3 +7,10 @@
 
 <% end %>
 </ul>
+=======
+<h1><%=@user.user_name %> Itineraries</h1>
+
+
+<p><%= link_to "Add a new itinerary", new_itinerary_path%></p>
+<p><%= link_to "Back to home", root_path %></p>
+>>>>>>> 8e8e94b84c5b1eb4b620589eae0d98f4c0263e44
